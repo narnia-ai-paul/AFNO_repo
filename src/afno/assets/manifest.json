@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "paper": "https://arxiv.org/abs/2605.25413v3",
+  "implementation": "independent",
+  "split": "val",
+  "test_accessed": false,
+  "labels": {
+    "fno": "FNO",
+    "afno": "AFNO"
+  },
+  "sample_indices": [
+    0
+  ],
+  "sample_rule": "Fixed by index before KS field export; no selection using model errors",
+  "cases": {
+    "burgers": {
+      "models": {
+        "fno": {
+          "original_checkpoint_sha256": "804c64394477d2e11205c74cef1e630ed22222a3031c554e5ceb869635171869",
+          "original_model_source_sha256": "9aaaf8ea02490dfd34a4f8259e0ba7cd8aeaab44bbd9eac0c3c8e8a0d396c6e2",
+          "original_export_sha256": "b40ba4e39689721f224a8a140f3c7b4469a16f49d1dfa8ca5f32c9f1ffb4cc59",
+          "weights": "pretrained/burgers_fno.pt",
+          "real_parameter_count": 148033,
+          "training_epochs": {
+            "base": 500,
+            "warmup": 0,
+            "balanced": 0
+          }
+        },
+        "afno": {
+          "original_checkpoint_sha256": "aeedfc197be5c21996234f4542557683318fd937acea976b749cd5925b206cf1",
+          "original_model_source_sha256": "af3d054594236492da57678363c96bdc942e5601419c021b0e505140130409be",
+          "original_export_sha256": "2c4d5b2ef7b2fde09c2ce317226f2d00fa06b87fd0b6f730cba76c7b18f532a6",
+          "weights": "pretrained/burgers_afno.pt",
+          "real_parameter_count": 482209,
+          "training_epochs": {
+            "base": 500,
+            "warmup": 60,
+            "balanced": 40
+          }
+        }
+      },
+      "validation_data_sha256": "07908b2050a50b63213554b706d946a8cccf2332c36f2bc5b292c7de6f8f083e",
+      "data_generation": {
+        "equation": "burgers",
+        "resolution": [
+          1024
+        ],
+        "lengths": [
+          6.283185307179586
+        ],
+        "channels": 1,
+        "observation_dt": 0.01,
+        "steps": 100,
+        "internal_dt": 0.0005,
+        "params": {
+          "nu": 0.01
+        },
+        "conditioning": [
+          "nu"
+        ],
+        "initial_rms": 0.5,
+        "initial_bandwidth": 5.0,
+        "splits": {
+          "train": 1000,
+          "val": 100,
+          "test": 200
+        },
+        "split_seeds": {
+          "train": 20260911,
+          "val": 20260912,
+          "test": 20260913
+        },
+        "boundary": "periodic",
+        "protocol": "independent_appendix_a_v3"
+      },
+      "sample": "examples/burgers_sample.npz",
+      "population": "examples/burgers_population.npz"
+    },
+    "ks": {
+      "models": {
+        "fno": {
+          "original_checkpoint_sha256": "f73202be93345b2e395c56814b1ce70d71546a26563425e2c7236170e664016c",
+          "original_model_source_sha256": "16e31e814a60d17a60e6ce9b9b8ce7f5f0dcd579a95e5ee086827f2b6e1b34cb",
+          "original_export_sha256": "9ec7587a8e4cea9c56192a36ccb21f4dea5b86bd78616deaaf22e1abefa194b0",
+          "weights": "pretrained/ks_fno.pt",
+          "real_parameter_count": 147969,
+          "training_epochs": {
+            "base": 500,
+            "warmup": 0,
+            "balanced": 0
+          }
+        },
+        "afno": {
+          "original_checkpoint_sha256": "813acadb3bd879ddcd7f4a74451574c925e7ff1c82529b8f432a95669f070ce7",
+          "original_model_source_sha256": "dd6e3d940f0f3d6ae16dd414a8f5dc160c6149a3dc6b4c624853bf7555108dd4",
+          "original_export_sha256": "cb54d6da0286f18789c5a23172e5eb0843c0242f3075caa6dae99954cc89c43e",
+          "weights": "pretrained/ks_afno.pt",
+          "real_parameter_count": 482193,
+          "training_epochs": {
+            "base": 500,
+            "warmup": 60,
+            "balanced": 40
+          }
+        }
+      },
+      "validation_data_sha256": "8825d2486179659b7c5967e71e917f77913cc551cfbb3847c71cf5047853701b",
+      "data_generation": {
+        "equation": "ks",
+        "resolution": [
+          1024
+        ],
+        "lengths": [
+          64.0
+        ],
+        "channels": 1,
+        "observation_dt": 0.1,
+        "steps": 100,
+        "internal_dt": 0.025,
+        "params": {},
+        "conditioning": [],
+        "initial_rms": 0.5,
+        "initial_bandwidth": 5.0,
+        "splits": {
+          "train": 1000,
+          "val": 100,
+          "test": 200
+        },
+        "split_seeds": {
+          "train": 20260911,
+          "val": 20260912,
+          "test": 20260913
+        },
+        "boundary": "periodic",
+        "protocol": "independent_appendix_a_v3"
+      },
+      "sample": "examples/ks_sample.npz",
+      "population": "examples/ks_population.npz"
+    }
+  },
+  "population_statistics": {
+    "burgers": {
+      "metrics": {
+        "FNO": {
+          "first5_mse": 0.00047903852086258504,
+          "full100_mse": 0.028552096987882282
+        },
+        "AFNO": {
+          "first5_mse": 0.0003649428949552398,
+          "full100_mse": 0.01303929775417934
+        }
+      },
+      "afno_lower_counts": {
+        "first5": 82,
+        "full100": 78,
+        "both": 65,
+        "steps": 99
+      }
+    },
+    "ks": {
+      "metrics": {
+        "FNO": {
+          "first5_mse": 0.0003867017001836985,
+          "full100_mse": 0.26009423217065797
+        },
+        "AFNO": {
+          "first5_mse": 0.00027484313266727683,
+          "full100_mse": 0.11997303330310495
+        }
+      },
+      "afno_lower_counts": {
+        "first5": 83,
+        "full100": 91,
+        "both": 76,
+        "steps": 99
+      }
+    }
+  },
+  "caption": "Ground truth, FNO and AFNO predictions, and absolute errors for 100-step forecasts of Burgers (top; dt=0.01, periodic domain [0,2pi)) and Kuramoto\u2013Sivashinsky (bottom; dt=0.1, periodic domain [0,64)). The main comparison uses validation trajectory 0 for each PDE, fixed by index before KS field export. Both models receive the same initial condition and are compared with identical reference fields. Evolution is performed at 256 spatial points, with decoded readouts Fourier-resampled to the 1024-point reference grid. Each PDE uses a shared, symmetric linear color scale for ground truth and both predictions, and a shared zero-to-maximum linear color scale for both absolute-error maps. Scales cover the complete displayed range without clipping and may differ between PDEs and supplementary examples. The periodic endpoint is repeated only for display, preserving the original grid-center coordinates. The accompanying error curves average MSE over all 100 validation trajectories at each step; full-100 MSE denotes the average over all steps, not just step 100. FNO and AFNO are the labels used throughout these figures. AFNO denotes the completed balanced-curriculum checkpoint: 500 original epochs, 60 warmup epochs, and 40 repair epochs; FNO uses its original 500-epoch checkpoint. Thus training compute is unequal. Results use one initialization seed and the validation set used during method development/checkpoint selection. Independent confirmation is outstanding. No training or canonical-test inference was performed for these figures.",
+  "asset_sha256": {
+    "configs/balanced.json": "150308707c43191959220dc0add07306616659a04dbc805225288fea3d18516b",
+    "configs/burgers.json": "034b4771ae3ca0c2c64a010db36479f771271021a83f4d992e068a872b5c5ea4",
+    "configs/ks.json": "214324fa37f2375792275b8659b8c8640962988ce2f3935b86abcb27e1807299",
+    "configs/smoke_burgers.json": "701e419b0e0ad43cd5c330abad3665b02834be140eed5fc4bcec6bc35f96a976",
+    "configs/warmup.json": "c10a57afe708f5be244e33ae8279f7d7396efee0e3aff4e45603e5e375d0f9dc",
+    "examples/burgers_population.npz": "4135dff6079843e8e76a68fef09222afe111f21d09c7d934c4bd9540e8c66ebc",
+    "examples/burgers_sample.npz": "1c33bd660fcb2b4dd3f0094b356073cddaae8259844538c39587a7f3185f7dc7",
+    "examples/ks_population.npz": "d7efcd7119527a1ea58ac65180c9e3642fc782e3c4007fa5208d0d1f02557977",
+    "examples/ks_sample.npz": "7eb8567583d5faba1e9b0b4ca20f612d62b60005e0bc2e4e319f050a8f02378d",
+    "pretrained/burgers_afno.pt": "d0182c972b0a41270bd8c6411595f1afbf8f980b2e65816e3220bf9d8155356b",
+    "pretrained/burgers_fno.pt": "66310d5ea69d23ee94c6bc7ad7651f1e8f82c8ce7f6e320cf10baa4fcdd91074",
+    "pretrained/ks_afno.pt": "b40522a3ff16a7370cea5fedcf88dd7d122c82ecceee0a16670defdb883c0776",
+    "pretrained/ks_fno.pt": "ba97a24bdf355590278db506d0e5da923d9f5ef51291062e765aaea9e4e5b179"
+  }
+}

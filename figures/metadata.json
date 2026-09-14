@@ -1,0 +1,71 @@
+{
+  "labels": {
+    "fno": "FNO",
+    "afno": "AFNO"
+  },
+  "primary_sample_index": 0,
+  "main_scales": {
+    "burgers": {
+      "field_min": -0.8897842764854431,
+      "field_max": 0.8897842764854431,
+      "error_min": 0.0,
+      "error_max": 1.0402597784996033
+    },
+    "ks": {
+      "field_min": -3.482282876968384,
+      "field_max": 3.482282876968384,
+      "error_min": 0.0,
+      "error_max": 4.73357367515564
+    }
+  },
+  "population_statistics": {
+    "burgers": {
+      "metrics": {
+        "FNO": {
+          "first5_mse": 0.00047903852086258504,
+          "full100_mse": 0.028552096987882282
+        },
+        "AFNO": {
+          "first5_mse": 0.0003649428949552398,
+          "full100_mse": 0.01303929775417934
+        }
+      },
+      "afno_lower_counts": {
+        "first5": 82,
+        "full100": 78,
+        "both": 65,
+        "steps": 99
+      }
+    },
+    "ks": {
+      "metrics": {
+        "FNO": {
+          "first5_mse": 0.0003867017001836985,
+          "full100_mse": 0.26009423217065797
+        },
+        "AFNO": {
+          "first5_mse": 0.00027484313266727683,
+          "full100_mse": 0.11997303330310495
+        }
+      },
+      "afno_lower_counts": {
+        "first5": 83,
+        "full100": 91,
+        "both": 76,
+        "steps": 99
+      }
+    }
+  },
+  "artifact_hashes": {
+    "burgers_ks_comparison.png": "0e039dfe60650a2fc4da60c4fe94a960880ebc59a9c7ffe6b9c2f9c5b5a9c871",
+    "burgers_ks_error_curves.png": "23ec04a4e029ae80f415c427d8ea97aaca27484de8b33e11cdc59eaa46ec2a6b",
+    "supplement_trajectories_000_007.pdf": "fbeacb7e2985d310b438b5c23cc50b8b6630ddbab27d3ac2d52cf7523dc92e2b",
+    "burgers_ks_error_curves.pdf": "12e1020621418a57f0561c407d60f1f5d44186e1d8704ac4c0d06e01318cd60d",
+    "burgers_comparison.png": "0a9aa131ceb13afcd824f62a66c7b64fa3d96562dba26b9055f1cf51b3cd6733",
+    "burgers_ks_comparison.pdf": "37839bab594f0994000d106905f3ff28d4f169c6100b594862339a19d05061d0",
+    "burgers_comparison.pdf": "3f07598f1e498462ead9aaa78acd0ce881fad825415a8b6ed1e68a11f5c2b6b4",
+    "ks_comparison.pdf": "fc1a26fd56d7f4d0a42074112088f75ce201739c21942e82d4db9731fde691c8",
+    "ks_comparison.png": "af7f8291a3f15b0a9acd190bbe68d22a101c0e093d9ee986926b9b17ac0d3910"
+  },
+  "caption": "Ground truth, FNO and AFNO predictions, and absolute errors for 100-step forecasts of Burgers (top; dt=0.01, periodic domain [0,2pi)) and Kuramoto\u2013Sivashinsky (bottom; dt=0.1, periodic domain [0,64)). The main comparison uses validation trajectory 0 for each PDE, fixed by index before KS field export. Both models receive the same initial condition and are compared with identical reference fields. Evolution is performed at 256 spatial points, with decoded readouts Fourier-resampled to the 1024-point reference grid. Each PDE uses a shared, symmetric linear color scale for ground truth and both predictions, and a shared zero-to-maximum linear color scale for both absolute-error maps. Scales cover the complete displayed range without clipping and may differ between PDEs and supplementary examples. The periodic endpoint is repeated only for display, preserving the original grid-center coordinates. The accompanying error curves average MSE over all 100 validation trajectories at each step; full-100 MSE denotes the average over all steps, not just step 100. FNO and AFNO are the labels used throughout these figures. AFNO denotes the completed balanced-curriculum checkpoint: 500 original epochs, 60 warmup epochs, and 40 repair epochs; FNO uses its original 500-epoch checkpoint. Thus training compute is unequal. Results use one initialization seed and the validation set used during method development/checkpoint selection. Independent confirmation is outstanding. No training or canonical-test inference was performed for these figures."
+}

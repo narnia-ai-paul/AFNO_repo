@@ -1,0 +1,34 @@
+{
+  "model_port": {
+    "burgers_fno": {
+      "steps": 100,
+      "max_abs_difference": 0.0,
+      "bitwise_equal": true
+    },
+    "burgers_afno": {
+      "steps": 100,
+      "max_abs_difference": 0.0,
+      "bitwise_equal": true
+    },
+    "ks_fno": {
+      "steps": 100,
+      "max_abs_difference": 0.0,
+      "bitwise_equal": true
+    },
+    "ks_afno": {
+      "steps": 100,
+      "max_abs_difference": 0.0,
+      "bitwise_equal": true
+    }
+  },
+  "reference_solvers": {
+    "burgers": {
+      "max_abs_difference": 0.0,
+      "exact_equal": true
+    },
+    "ks": {
+      "max_abs_difference": 0.0,
+      "exact_equal": true
+    }
+  }
+}

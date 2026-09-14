@@ -1,0 +1,71 @@
+{
+  "name": "smoke_burgers",
+  "paper": "2605.25413v3",
+  "evidence_level": "development_only",
+  "data_generation": {
+    "equation": "burgers",
+    "resolution": [
+      32
+    ],
+    "lengths": [
+      6.283185307179586
+    ],
+    "channels": 1,
+    "observation_dt": 0.01,
+    "steps": 8,
+    "internal_dt": 0.002,
+    "params": {
+      "nu": 0.01
+    },
+    "conditioning": [
+      "nu"
+    ],
+    "initial_rms": 0.5,
+    "initial_bandwidth": 5.0,
+    "splits": {
+      "train": 8,
+      "val": 4,
+      "test": 4
+    },
+    "split_seeds": {
+      "train": 90211,
+      "val": 90212,
+      "test": 90213
+    },
+    "boundary": "periodic",
+    "protocol": "independent_appendix_a_v3"
+  },
+  "data_path": "data/smoke_burgers",
+  "training_resolution": [
+    32
+  ],
+  "model": {
+    "name": "afno",
+    "channels": 1,
+    "ndim": 1,
+    "physical_params": 1,
+    "latent_channels": 4,
+    "width": 8,
+    "modes": 3,
+    "depth": 1,
+    "embedding_dim": 4,
+    "variant": "afno"
+  },
+  "training": {
+    "epochs": 4,
+    "batch_size": 4,
+    "learning_rate": 0.001,
+    "horizon": 3,
+    "reconstruction_fraction": 0.3,
+    "stage2_weights": [
+      0.0,
+      0.5,
+      0.1
+    ],
+    "h1_weight": 0.0001,
+    "pushforward_steps": 0,
+    "seed": 0,
+    "checkpoint_every": 1,
+    "validate_every": 1
+  }
+}

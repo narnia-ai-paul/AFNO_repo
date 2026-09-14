@@ -1,0 +1,18 @@
+{
+  "burgers_comparison.png": {
+    "pixel_identical": true,
+    "sha256_identical": true
+  },
+  "burgers_ks_comparison.png": {
+    "pixel_identical": true,
+    "sha256_identical": true
+  },
+  "burgers_ks_error_curves.png": {
+    "pixel_identical": true,
+    "sha256_identical": true
+  },
+  "ks_comparison.png": {
+    "pixel_identical": true,
+    "sha256_identical": true
+  }
+}

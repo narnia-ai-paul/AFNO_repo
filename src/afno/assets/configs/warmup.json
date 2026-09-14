@@ -1,0 +1,47 @@
+{
+  "name": "long_rollout_v1",
+  "evidence_level": "exploratory_validation_only",
+  "equations": [
+    "burgers",
+    "ks"
+  ],
+  "initial_model_seed": 0,
+  "training": {
+    "epochs": 60,
+    "batch_size": 32,
+    "learning_rate": 0.0001,
+    "seed": 41011,
+    "h1_weight": 0.0001,
+    "activation_checkpoint": true,
+    "validate_every": 10,
+    "early_tolerance": 0.1
+  },
+  "arms": [
+    {
+      "name": "curriculum_rec",
+      "rec_weight": 0.4,
+      "balance_blocks": true,
+      "stages": [
+        {
+          "through_epoch": 10,
+          "horizon": 5
+        },
+        {
+          "through_epoch": 25,
+          "horizon": 20
+        },
+        {
+          "through_epoch": 40,
+          "horizon": 50
+        },
+        {
+          "through_epoch": 60,
+          "horizon": 100
+        }
+      ]
+    }
+  ],
+  "selection": "All 100 validation trajectories at 256 points, full 100-step rollout. Minimize worst temporal-block MSE among checkpoints whose first-five MSE is at most 1.1 times the unmodified initial checkpoint. Include epoch zero. Blocks 1-5,6-20,21-50,51-100. Native-grid validation reports final and selected, and cannot change selection.",
+  "compute_caveat": "60 additional epochs, progressively longer rollouts; fresh Adam and cosine schedule.",
+  "interpretation": "A separately budgeted fine-tune with a new Adam optimizer and cosine schedule. It does not extend the old schedule or change the paper result. Failure does not rule out a from-scratch curriculum. Validation improvements require fresh-seed and untouched-data confirmation. No test inference or selection. No claim of arbitrary long-horizon accuracy."
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dual_horizon_v2",
+  "evidence_level": "exploratory_validation_only",
+  "equations": [
+    "burgers",
+    "ks"
+  ],
+  "training": {
+    "epochs": 40,
+    "horizon": 100,
+    "batch_size": 32,
+    "learning_rate": 3e-05,
+    "seed": 42011,
+    "h1_weight": 0.0001,
+    "rec_weight": 0.4,
+    "activation_checkpoint": true,
+    "validate_every": 5
+  },
+  "arms": [
+    {
+      "name": "balanced",
+      "mode": "normalized",
+      "stages": [
+        {
+          "through_epoch": 40,
+          "early_weight": 0.5
+        }
+      ]
+    }
+  ],
+  "scaling": "Freeze first-five and full-100 mean squared errors of the shared initialization on ALL TRAIN trajectories. No validation scaling, no online moving denominator, no teacher predictions in the loss.",
+  "selection": "All 100 validation trajectories, training grid 256, full 100-step free rollout. Minimize max(first5_MSE/FNO_first5_MSE, full100_MSE/FNO_full100_MSE), including epoch zero. Strict ratio below one means both validation MSEs beat original FNO. Report final and selected on native-grid readouts; native evaluation cannot change selection.",
+  "compute_caveat": "40 additional full-trajectory epochs with a fresh Adam and cosine schedule.",
+  "confirmation": "A validation dual win is preliminary. Lock one candidate per equation before independent confirmation; do not retune against original test or a revealed confirmation set. Multiple training seeds remain necessary for an algorithm-level claim."
+}

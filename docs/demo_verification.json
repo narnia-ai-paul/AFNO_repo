@@ -1,0 +1,42 @@
+{
+  "assets": {
+    "verified": true,
+    "files": 13,
+    "equations": [
+      "burgers",
+      "ks"
+    ],
+    "split": "val"
+  },
+  "device": "cpu",
+  "split": "val",
+  "sample_index": 0,
+  "trajectories_per_equation": 1,
+  "note": "Sample metrics only; full-population results are bundled separately.",
+  "cases": {
+    "burgers": {
+      "FNO": {
+        "first5_mse": 0.00032260751164067756,
+        "full100_mse": 0.020934428550896646,
+        "max_abs_difference_from_saved_prediction": 3.129243850708008e-06
+      },
+      "AFNO": {
+        "first5_mse": 0.0002820623415062971,
+        "full100_mse": 0.010074767289053412,
+        "max_abs_difference_from_saved_prediction": 3.17692756652832e-05
+      }
+    },
+    "ks": {
+      "FNO": {
+        "first5_mse": 0.00036804360722044474,
+        "full100_mse": 0.501982584765787,
+        "max_abs_difference_from_saved_prediction": 6.031990051269531e-05
+      },
+      "AFNO": {
+        "first5_mse": 0.00013928534488815764,
+        "full100_mse": 0.13920987248430425,
+        "max_abs_difference_from_saved_prediction": 2.7060508728027344e-05
+      }
+    }
+  }
+}
