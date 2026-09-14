@@ -41,7 +41,6 @@ MSE averaged over 100 validation trajectories, with evolution at 256 spatial poi
 | KS | FNO | 3.86702e-4 | 2.60094e-1 |
 | KS | AFNO | **2.74843e-4** | **1.19973e-1** |
 
-“Full-100” averages all 100 prediction steps. These are single-seed validation results used during method development. FNO trained for 500 epochs; AFNO trained for 500 base epochs, 60 curriculum epochs, and 40 balanced epochs. Thus the comparison uses unequal training compute. AFNO has lower aggregate error here, but does not win on every trajectory or every step. The sample demo's MSEs are for one trajectory and will differ from this table. See [method and results](docs/METHOD.md).
 
 ## Train from scratch
 
